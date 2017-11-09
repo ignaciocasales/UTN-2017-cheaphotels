@@ -59,14 +59,14 @@ $ python manage.py runserver
 
     - Project root
     
-    `/YOUR_PATH/UTN-2017-cheaphotels`
+    `/YOUR_PATH/UTN-2017-cheaphotels/src/cheaphotels`
     
     - Define settings.py
     
-    `/YOUR_PATH/UTN-2017-cheaphotels/cheaphotels/settings.py`
+    `/YOUR_PATH/UTN-2017-cheaphotels/src/cheaphotels/cheaphotels/settings.py`
     
     - Define manage.py
     
-    `/YOUR_PATH/UTN-2017-cheaphotels/manage.py`
+    `/YOUR_PATH/UTN-2017-cheaphotels/src/cheaphotels/manage.py`
     
     - Create a run configuration
