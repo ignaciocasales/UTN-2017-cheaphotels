@@ -5,6 +5,6 @@
 *.iml
 
 # Django & python
-/*/__pycache__/
-/*/migrations/
+src/cheaphotels/*/__pycache__/
+src/cheaphotels/*/migrations/
 db.sqlite3
