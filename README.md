@@ -1,4 +1,4 @@
-# Cheaphotels
+# Cheap Hotels
 
 > UTN - 2017
 
