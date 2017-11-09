@@ -1,3 +1,10 @@
+#UTN 2017 gitignore
 
+# Intellij
 .idea
 *.iml
+
+# Django & python
+/*/__pycache__/
+/*/migrations/
+db.sqlite3
