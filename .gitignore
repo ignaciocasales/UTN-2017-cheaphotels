@@ -7,4 +7,7 @@
 # Django & python
 src/cheaphotels/*/__pycache__/
 src/cheaphotels/*/migrations/
-db.sqlite3
+*.sqlite3
+
+# Project
+src/cheaphotels/media/
