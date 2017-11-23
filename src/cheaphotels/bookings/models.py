@@ -4,7 +4,12 @@ from django.db import models
 
 def property_image_rename(instance, filename):
     path = "hotels/images/"
-    name = str(instance.id) + filename
+    if instance.id is not None:
+        name = str(instance.id) + filename
+    elif not Property.objects.last():
+        name = str(1) + filename
+    else:
+        name = str(Property.objects.latest('id').pk + 1) + filename
     return os.path.join(path, name)
 
 
@@ -33,7 +38,7 @@ class Property(models.Model):
     picture = models.ImageField(blank=True, null=True, upload_to=property_image_rename)
     max_pax = models.PositiveIntegerField(blank=False, null=False, default=1)
     daily_cost = models.FloatField(blank=False, null=False, default=0)
-    city = models.OneToOneField(City, on_delete=models.DO_NOTHING, blank=False, null=False)
+    city = models.ForeignKey(City, on_delete=models.DO_NOTHING, blank=False, null=False)
 
     class Meta:
         verbose_name_plural = "properties"
