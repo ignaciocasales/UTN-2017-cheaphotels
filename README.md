@@ -13,7 +13,7 @@ Made by
 
 - Install **pip**
 
-- Install **Django 1.11.7** 
+- Install **Django 1.11.7**
 ```Bash
 $ pip install Django==1.11.7
 ```
@@ -27,17 +27,27 @@ $ pip install Pillow
 - Go to the project root
 
 ````Bash
-$ cd UTN-2017-cheaphotels
+$ cd UTN-2017-cheaphotels\src\cheaphotels
 ````
 
-- Migrate & Create superuser
+
+- Migrate Initial Data
 
 ````bash
 $ python manage.py migrate
+````
 
-$ python manage.py makemigrations
+- Migrate Bookings Models
+````bash
+$ python manage.py makemigrations bookings
+$ python manage.py migrate bookings
+````
 
-$ python manage.py createsuperuser
+- Seed Premade Authentication Rules and Users/Cities
+
+````Bash
+$ python manage.py loaddata auth-data.json
+$ python manage.py loaddata mock-data.json
 ````
 
 - Start the development server
@@ -45,9 +55,36 @@ $ python manage.py createsuperuser
 $ python manage.py runserver
 ````
 
-- Enter the admin site at 
- 
+- Enter the admin site at
+
     - `http://127.0.0.1:8000/admin/`
+
+- Premade user data:
+	- Superuser:
+
+		username: superuser
+
+		password: super123
+
+	- Admin:
+
+		username: admin
+
+		password: adder123
+
+	- Owners:
+
+		- jane.doe:
+
+			username: jane.doe
+
+			password: j4n3123456
+
+		- john.doe:
+
+			username: john.doe
+
+			password: j0hn123456		
 
 ### Intellij Setup
 
@@ -58,15 +95,15 @@ $ python manage.py runserver
 - Setup django framework
 
     - Project root
-    
+
     `/YOUR_PATH/UTN-2017-cheaphotels/src/cheaphotels`
-    
+
     - Define settings.py
-    
+
     `/YOUR_PATH/UTN-2017-cheaphotels/src/cheaphotels/cheaphotels/settings.py`
-    
+
     - Define manage.py
-    
+
     `/YOUR_PATH/UTN-2017-cheaphotels/src/cheaphotels/manage.py`
-    
+
     - Create a run configuration
