@@ -34,7 +34,7 @@ class Passenger(models.Model):
 
 class Property(models.Model):
     name = models.CharField(blank=False, null=False, max_length=50, default="Property Name")
-    description = models.TextField(blank=False, null=False, default="Awesome description")
+    description = models.TextField(blank=False, null=False, default="Awesome description", max_length=100)
     picture = models.ImageField(blank=True, null=True, upload_to=property_image_rename)
     max_pax = models.PositiveIntegerField(blank=False, null=False, default=1)
     daily_cost = models.FloatField(blank=False, null=False, default=0)
@@ -61,7 +61,7 @@ class Reservation(models.Model):
 class ReservationDate(models.Model):
     date = models.DateField(blank=False, null=False)
     property = models.ForeignKey(Property, on_delete=models.PROTECT, blank=False, null=False)
-    reservation = models.ForeignKey(Reservation, on_delete=models.PROTECT, blank=False, null=False)
+    reservation = models.ForeignKey(Reservation, on_delete=models.PROTECT, blank=True, null=True)
 
     def __str__(self):
         return self.property.name
