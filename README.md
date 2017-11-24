@@ -27,17 +27,26 @@ $ pip install Pillow
 - Go to the project root
 
 ````Bash
-$ cd UTN-2017-cheaphotels
+$ cd UTN-2017-cheaphotels\src\cheaphotels
 ````
 
-- Migrate & Create superuser
+
+- Migrate Initial Data
 
 ````bash
 $ python manage.py migrate
+````
 
-$ python manage.py makemigrations
+- Migrate Bookings Models
+````bash
+$ python manage.py makemigrations bookings
+$ python manage.py migrate bookings
+````
 
-$ python manage.py createsuperuser
+- Seed premade Users
+
+````Bash
+$ python manage.py loaddata users.json
 ````
 
 - Start the development server
@@ -48,6 +57,27 @@ $ python manage.py runserver
 - Enter the admin site at 
  
     - `http://127.0.0.1:8000/admin/`
+
+- Premade user data:
+	- Superuser:
+		username: superuser
+		password: super123
+	- Normal Admin:
+		username: admin
+		password: adder123
+	- Owners:
+		- Propietario 1:
+			username: propietario1
+			password: propie123
+		- Nachito:
+			username: Nachito
+			password: casales123
+		- Jorgito:
+			username: JorgeErcoli
+			password: jorgito1
+		- Carlitos:
+			username: CarliTambasci
+			password: carliboy				
 
 ### Intellij Setup
 
