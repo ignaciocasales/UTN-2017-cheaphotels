@@ -62,6 +62,7 @@ def check_availability(request):
             first_name=request.POST['first_name'],
             last_name=request.POST['last_name'],
             email=request.POST['email'])
+        r.save()
         for reservation_date in reservation_dates:
             if datetime_start_date <= reservation_date.date <= datetime_end_date:
                 reservation_date.reservation = r
