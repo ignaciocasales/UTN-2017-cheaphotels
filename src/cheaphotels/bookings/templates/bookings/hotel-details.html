@@ -26,15 +26,16 @@
 				</div>
 			</div>
 			<div class="col-12 col-md-10 offset-md-1 pt-3 pb-3" style="background-color: #f5f5f5;">
-				<form>
+				<form action="/bookings/check_availability/" method="post">
 					{% csrf_token %}
 					<div class="form-row align-items-center">
 						<div class="col-sm-3">
-							<input type="date" class="form-control mb-2 mb-sm-0">
+							<input type="date" name="start_date" class="form-control mb-2 mb-sm-0" required>
 						</div>
 						<div class="col-sm-3">
-							<input type="date" class="form-control">
+							<input type="date" name="end_date" class="form-control" required>
 						</div>
+						<input type="hidden" name="property_id" value="{{ property.id }}">
 						<div class="col-auto">
 							<button type="submit" class="btn btn-outline-primary">Check!</button>
 						</div>
