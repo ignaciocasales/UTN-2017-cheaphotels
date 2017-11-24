@@ -23,15 +23,6 @@ class City(models.Model):
         return self.name
 
 
-class Passenger(models.Model):
-    first_name = models.CharField(blank=False, null=False, max_length=50)
-    last_name = models.CharField(blank=False, null=False, max_length=50)
-    email = models.EmailField(blank=False, null=False, max_length=200)
-
-    def __str__(self):
-        return self.first_name + '' + self.last_name
-
-
 class Property(models.Model):
     name = models.CharField(blank=False, null=False, max_length=50, default="Property Name")
     description = models.TextField(blank=False, null=False, default="Awesome description", max_length=100)
@@ -49,9 +40,10 @@ class Property(models.Model):
 
 class Reservation(models.Model):
     reservation_date = models.DateField(blank=False, null=False, auto_now=True)
-    reservation_number = models.PositiveIntegerField(blank=False, null=False, unique=True)
-    total_amount = models.FloatField(blank=False, null=False)
-    passenger = models.OneToOneField(Passenger, on_delete=models.DO_NOTHING, blank=False, null=False)
+    total_amount = models.FloatField(blank=True, null=True)
+    first_name = models.CharField(blank=True, null=True, max_length=50)
+    last_name = models.CharField(blank=True, null=True, max_length=50)
+    email = models.EmailField(blank=True, null=True, max_length=200)
     property = models.ForeignKey(Property, on_delete=models.PROTECT, blank=False, null=False)
 
     def __str__(self):
