@@ -18,7 +18,20 @@ def hotel_search_results(request):
         context = {'properties': properties}
         return render(request, 'bookings/hotel-search-results.html', context)
     if request.method == 'POST':
+        city = request.POST['city']
+        pax = request.POST['pax']
+        max_price = request.POST['max_price']
         properties = Property.objects.all()
+
+        if not city.__eq__('None'):
+            properties = properties.filter(city=city)
+
+        if not pax.__eq__('None'):
+            properties = properties.filter(max_pax__gte=pax)
+
+        if not max_price.__eq__('None'):
+            properties = properties.filter(daily_cost__lte=max_price)
+
         context = {'properties': properties}
         return render(request, 'bookings/hotel-search-results.html', context)
 
