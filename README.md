@@ -60,24 +60,30 @@ $ python manage.py runserver
 
 - Premade user data:
 	- Superuser:
+	
 		username: superuser
+		
 		password: super123
-	- Normal Admin:
+		
+	- Admin:
+	
 		username: admin
+		
 		password: adder123
+		
 	- Owners:
-		- Propietario 1:
-			username: propietario1
-			password: propie123
-		- Nachito:
-			username: Nachito
-			password: casales123
-		- Jorgito:
-			username: JorgeErcoli
-			password: jorgito1
-		- Carlitos:
-			username: CarliTambasci
-			password: carliboy				
+	
+		- jane.doe:
+		
+			username: jane.doe
+			
+			password: j4n3123456
+			
+		- john.doe:
+		
+			username: john.doe
+			
+			password: j0hn123456		
 
 ### Intellij Setup
 

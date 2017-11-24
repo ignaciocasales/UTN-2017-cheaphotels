@@ -14,7 +14,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h6 class="text-center">There's no availability on those dates.</h6>
+                <div class="alert alert-danger" role="alert">
+                    <h6 class="text-center">Can't book now, try again later.</h6>
+                </div>
+                {% url 'bookings:index' as index %}
+                <a type="button" href="{{ index }}" class="btn btn-secondary btn-lg btn-block">Go to search</a>
 			</div>
 		</div>
 	</div>

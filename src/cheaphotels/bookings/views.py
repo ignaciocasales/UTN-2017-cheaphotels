@@ -63,10 +63,14 @@ def check_availability(request):
             last_name=request.POST['last_name'],
             email=request.POST['email'])
         r.save()
+        count = 0
         for reservation_date in reservation_dates:
             if datetime_start_date <= reservation_date.date <= datetime_end_date:
                 reservation_date.reservation = r
                 reservation_date.save()
+                count = count + 1
+        if count == 0:
+            return render(request, 'bookings/no-availability.html')
         r.total_amount = r.property.daily_cost * r.property.reservationdate_set.filter(reservation=r).count()
         r.save()
         return redirect('bookings:successful_booking', r.id)
@@ -77,4 +81,4 @@ def successful_booking(request, reservation_id):
         requested_reservation = Reservation.objects.get(id=reservation_id)
     except Property.DoesNotExist:
         raise Http404("Not Found")
-    return render(request, 'bookings/itinerary.html', {'property': requested_reservation})
+    return render(request, 'bookings/itinerary.html', {'reservation': requested_reservation})
