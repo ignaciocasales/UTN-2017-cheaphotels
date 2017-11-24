@@ -27,10 +27,10 @@ class City(models.Model):
 class Property(models.Model):
     name = models.CharField(blank=False, null=False, max_length=50, default="Property Name")
     description = models.TextField(blank=False, null=False, default="Awesome description", max_length=100)
-    picture = models.ImageField(blank=True, null=True, upload_to=property_image_rename)
+    picture = models.ImageField(blank=False, null=True, upload_to=property_image_rename)
     max_pax = models.PositiveIntegerField(blank=False, null=False, default=1)
     daily_cost = models.FloatField(blank=False, null=False, default=0)
-    city = models.ForeignKey(City, on_delete=models.DO_NOTHING, null=True, blank=True)
+    city = models.ForeignKey(City, on_delete=models.DO_NOTHING, null=True, blank=False)
     owner = models.ForeignKey(User, null=True, blank=True, on_delete=models.DO_NOTHING)
 
     class Meta:
