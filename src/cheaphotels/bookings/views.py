@@ -29,7 +29,7 @@ def hotel_search_results(request):
         if not pax.__eq__('None'):
             properties = properties.filter(max_pax__gte=pax)
 
-        if not max_price.__eq__('None'):
+        if max_price is not '':
             properties = properties.filter(daily_cost__lte=max_price)
 
         context = {'properties': properties}
